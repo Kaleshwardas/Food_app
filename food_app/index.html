@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div id="navbar">
+   
+    </div>
+   
+    <!-- <div id="">
+        <input type="type" id="search" placeholder="Enter Receipes Name">
+        <button id="btn">Search</button>
+    </div> -->
+    <div id="search"></div>
+
+    <div id="container">
+
+    </div>
+</body>
+</html>
+
+<script type="module">
+   import    {navbar,search}  from "./components/navbar.js"
+   //console.log(navbar())
+
+   document.getElementById("navbar").innerHTML=navbar()
+
+
+
+///////////////// Append function  ///////////////////////
+
+// import {getData,append} from "./scripts/appendFetch.js"
+
+console.log(getData)
+
+
+
+
+// document.querySelector("btn").addEventListener("onclick",getData)
+
+// let data= await getData(url)
+// console.log(data)
+// //console.log(getData)
+
+// let container=document.getElementById("container")
+
+// append(data,container)
+
+document.getElementById("search").innerHTML=search()
+//console.log(search())
+   
+
+let myFunc=()=>{
+    let query =document.getElementById("inputid").value;
+    console.log(query)
+    send(query)
+}
+
+document.getElementById("btn").addEventListener("click",myFunc)
+
+let send=async (query)=>{
+    
+let url=`https://www.themealdb.com/api/json/v1/1/filter.php?c=${query}`
+ let data= await getData(url)
+ console.log(data)
+
+
+// let data= await getData(url)
+// console.log(data)
+// //console.log(getData)
+
+ let container=document.getElementById("container")
+
+ append(data,container)
+}
+import {getData,append} from "./scripts/appendFetch.js"
+</script>
